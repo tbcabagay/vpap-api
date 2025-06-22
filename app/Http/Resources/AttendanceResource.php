@@ -16,8 +16,6 @@ class AttendanceResource extends JsonResource
     {
         return [
             'member' => new MemberResource($this->whenLoaded('member')),
-            'payment_confirmed' => $this->payment_confirmed,
-            'attended' => $this->attended,
         ];
     }
 }

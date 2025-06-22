@@ -19,7 +19,6 @@ class EventResource extends JsonResource
             'location' => $this->location,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
-            'attendances_total' => $this->whenLoaded('attendances')->count(),
             'attendances' => AttendanceResource::collection($this->whenLoaded('attendances')),
         ];
     }

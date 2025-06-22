@@ -15,7 +15,10 @@ class MemberResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'name' => $this->profile->name,
+            'first_name' => $this->whenLoaded('profile')->first_name,
+            'middle_name' => $this->whenLoaded('profile')->middle_name,
+            'last_name' => $this->whenLoaded('profile')->last_name,
+            'license_number' => (int) $this->whenLoaded('profession')->license_number,
             'email' => $this->email,
         ];
     }

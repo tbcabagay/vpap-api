@@ -24,4 +24,12 @@ class Member extends Model
     {
         return $this->hasOne(Profile::class, 'user_id', 'id');
     }
+
+    /**
+     * @return HasOne
+     */
+    public function profession(): HasOne
+    {
+        return $this->hasOne(Profession::class, 'user_id', 'id');
+    }
 }

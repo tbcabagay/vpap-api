@@ -23,7 +23,7 @@ class EventController extends Controller
         return Event::where('id', $id)
             ->with(['attendances' => function ($query) {
                 $query->with(['member' => function ($query) {
-                    $query->with('profile');
+                    $query->with(['profile', 'profession']);
                 }]);
             }])->firstOrFail();
     }
